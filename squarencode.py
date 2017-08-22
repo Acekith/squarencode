@@ -1,4 +1,5 @@
 import sys
+from itertools import zip_longest
 
 mydict = {
         "a" : ["|", "\\", "\\"],
@@ -28,8 +29,18 @@ mydict = {
         "y" : ["\\", "\\", "|"],
         "z" : ["\\", "\\", "\\"]
         }
+teststring = ''
+for key, value in sorted(mydict.items()):
+    symbol = ''
+    pair = ''
+    for x in value:
+        symbol += x
+    pair = key + symbol
+    teststring += pair + " "
+for x in zip_longest(*teststring.split(), fillvalue=' '):
+    print(' '.join(x))
 
 def encode():
     print(mydict)
-encode()
+#encode()
 
