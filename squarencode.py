@@ -1,6 +1,8 @@
 import sys
 from itertools import zip_longest
 
+
+#alphabet defined
 mydict = {
         "a" : ["|", "\\", "\\"],
         "b" : ["|", "\\", "|"],
@@ -29,18 +31,39 @@ mydict = {
         "y" : ["\\", "\\", "|"],
         "z" : ["\\", "\\", "\\"]
         }
-teststring = ''
-for key, value in sorted(mydict.items()):
-    symbol = ''
-    pair = ''
-    for x in value:
-        symbol += x
-    pair = key + symbol
-    teststring += pair + " "
-for x in zip_longest(*teststring.split(), fillvalue=' '):
-    print(' '.join(x))
 
-def encode():
-    print(mydict)
-#encode()
+#functions
 
+def printalphabet():
+    teststring = ''
+    print("\n" + "***************************")
+    print("*    PRINTING ALPHABET    *")
+    print("***************************" + "\n")
+    for key, value in sorted(mydict.items()):
+        symbol = ''
+        pair = ''
+        for x in value:
+            symbol += x
+        pair = key + symbol
+        teststring += pair + " "
+    for x in zip_longest(*teststring.split(), fillvalue=' '):
+        print(' '.join(x))
+
+
+def encode(string):
+    finalstring = ''
+    stringlist = list(string)
+
+    print(stringlist)
+    for x in stringlist:
+        symbol = ''
+        if x in mydict:
+            symbol = mydict[x]
+            print(x, symbol)
+        else:
+            symbol = " "
+            print(symbol)
+
+encode('test string do not encode')
+
+printalphabet()
