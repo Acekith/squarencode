@@ -52,18 +52,44 @@ def printalphabet():
 
 def encode(string):
     finalstring = ''
-    stringlist = list(string)
+    stringlist = list(string.lower())
 
     print(stringlist)
     for x in stringlist:
         symbol = ''
+        #for key, value in mydict.items():
+            #if x in key:
+                #print (x, key)
+                #for item in value:
+                #    symbol += item
+                #print ("*"+x+"*", symbol)
+                #print ("key found")
+            #else:
+                #print (x+" not found")
+                #print ("*"+x+"*", symbol)
+                #print ("key not found")
+
         if x in mydict:
-            symbol = mydict[x]
-            print(x, symbol)
+            #currentlist = mydict[x]
+            for item in mydict[x]:
+                symbol += item
+            print(symbol)
+            finalstring += symbol
         else:
             symbol = " "
             print(symbol)
+            finalstring += symbol
+    print("Final String Assembled")
+    print("-----------------------")
+    print(finalstring)
+    return(finalstring)
 
-encode('test string do not encode')
+def printformatted(string):
+    toPrint = encode(string)
+    print("\n" + "***************************")
+    print("*    Formatted Output    *")
+    print("***************************" + "\n")
+    for x in zip_longest(*toPrint.split(), fillvalue=' '):
+        print(' '.join(x))
 
-printalphabet()
+printformatted('Texas A&M Cyber SEcurity Club')
