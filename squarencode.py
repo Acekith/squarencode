@@ -1,4 +1,5 @@
 import sys
+import argparse
 from itertools import zip_longest
 
 
@@ -57,18 +58,6 @@ def encode(string):
     print(stringlist)
     for x in stringlist:
         symbol = ''
-        #for key, value in mydict.items():
-            #if x in key:
-                #print (x, key)
-                #for item in value:
-                #    symbol += item
-                #print ("*"+x+"*", symbol)
-                #print ("key found")
-            #else:
-                #print (x+" not found")
-                #print ("*"+x+"*", symbol)
-                #print ("key not found")
-
         if x in mydict:
             #currentlist = mydict[x]
             for item in mydict[x]:
@@ -91,5 +80,5 @@ def printformatted(string):
     print("***************************" + "\n")
     for x in zip_longest(*toPrint.split(), fillvalue=' '):
         print(' '.join(x))
-
+        return(' '.join(x))
 printformatted('Texas A&M Cyber SEcurity Club')
